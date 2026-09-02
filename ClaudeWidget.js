@@ -129,7 +129,9 @@
             const key = this._settings.apiKey || "";
             const ready = url.length > 0 && key.length > 0;
 
-            if (url.includes("anthropic.com")) {
+            if (url.includes("localhost:6655") || url.includes("hyperspace.tools.sap")) {
+                this.$providerBadge.innerText = "Hyperspace AI";
+            } else if (url.includes("anthropic.com")) {
                 this.$providerBadge.innerText = "Anthropic API";
             } else if (url.includes("openrouter.ai")) {
                 this.$providerBadge.innerText = "OpenRouter";
@@ -195,6 +197,7 @@
             try {
                 const isAnthropic  = apiUrl.includes("anthropic.com");
                 const isOpenRouter = apiUrl.includes("openrouter.ai");
+                const isHyperspace = apiUrl.includes("localhost:6655") || apiUrl.includes("hyperspace.tools.sap");
                 const headers = { "Content-Type": "application/json" };
 
                 if (isAnthropic) {
@@ -213,7 +216,8 @@
                 }
 
                 // OpenRouter / OpenAI-compatible: system message lives inside messages array
-                const requestBody = (isOpenRouter || (!isAnthropic && !isOpenRouter))
+                const useAnthropicFormat = isAnthropic || isHyperspace;
+                const requestBody = (!useAnthropicFormat)
                     ? {
                         model:      modelId,
                         messages:   [{ role: "system", content: systemPrompt }, ...this.conversationHistory],
