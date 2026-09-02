@@ -27,19 +27,23 @@
                     <option value="claude-opus-4-8">Claude Opus 4.8 — Most Capable</option>
                 </optgroup>
                 <optgroup label="── OpenRouter — Free Tier ──">
-                    <option value="anthropic/claude-3-haiku:free">Claude 3 Haiku — FREE (OpenRouter)</option>
+                    
                     <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B — FREE (OpenRouter)</option>
                     <option value="mistralai/mistral-7b-instruct:free">Mistral 7B — FREE (OpenRouter)</option>
                     <option value="google/gemma-2-9b-it:free">Gemma 2 9B — FREE (OpenRouter)</option>
+                    <option value="qwen/qwen-2-7b-instruct:free">Qwen 2 7B — FREE (OpenRouter)</option>
+                    <option value="microsoft/phi-3-mini-128k-instruct:free">Phi-3 Mini 128K — FREE (OpenRouter)</option>
                 </optgroup>
-                <optgroup label="── OpenRouter — Paid ──">
+                <optgroup label="── OpenRouter — Paid (Anthropic) ──">
+                    <option value="anthropic/claude-3-haiku">Claude 3 Haiku (OpenRouter)</option>
                     <option value="anthropic/claude-sonnet-4-5">Claude Sonnet 4.5 (OpenRouter)</option>
                     <option value="anthropic/claude-opus-4">Claude Opus 4 (OpenRouter)</option>
                 </optgroup>
             </select>
             <div class="hint">
                 <strong>Anthropic API models:</strong> use <code>https://api.anthropic.com/v1/messages</code> as URL.<br>
-                <strong>OpenRouter models:</strong> use <code>https://openrouter.ai/api/v1/chat/completions</code> as URL.
+                <strong>OpenRouter free models:</strong> use <code>https://openrouter.ai/api/v1/chat/completions</code> as URL.<br>
+                Note: Anthropic Claude models on OpenRouter are paid. Use Llama/Mistral/Gemma for free.
             </div>
         </div>
 
