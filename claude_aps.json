@@ -1,0 +1,97 @@
+{
+  "id": "com.custom.sap.claude",
+  "version": "1.1.0",
+  "name": "Claude Enterprise Assistant",
+  "description": "Claude AI custom analytic widget with support for Anthropic API and OpenRouter free-tier models.",
+  "newInstancePrefix": "ClaudeChat",
+  "vendor": "Enterprise Analytics",
+  "eula": "",
+  "license": "MIT",
+  "icon": "https://icons8.com",
+  "imports": [
+    "input-controls"
+  ],
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-custom-sap-claude",
+      "url": "https://jayram1990.github.io/Claude-Code-Anthropic/ClaudeWidget.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-custom-sap-claude-aps",
+      "url": "https://jayram1990.github.io/Claude-Code-Anthropic/aps_claude.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "metadata": {
+      "type": "string",
+      "description": "Internal model framework structural data",
+      "default": ""
+    },
+    "model": {
+      "type": "string",
+      "description": "AI model ID. Use Anthropic IDs for Anthropic API, or OpenRouter IDs (e.g. anthropic/claude-3-haiku:free) for OpenRouter.",
+      "default": "claude-haiku-4-5-20251001"
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Response generation creativity metric (0.0 = precise, 1.0 = creative)",
+      "default": 0.2
+    },
+    "maxTokens": {
+      "type": "number",
+      "description": "Maximum tokens in the response",
+      "default": 1000
+    },
+    "headerLabel": {
+      "type": "string",
+      "description": "Visual header label name",
+      "default": "Claude Analytics"
+    },
+    "welcomeMsg": {
+      "type": "string",
+      "description": "First initialization splash text",
+      "default": "Welcome to Claude Assistant! Synchronize actuals data to model your insights."
+    },
+    "apiUrl": {
+      "type": "string",
+      "description": "Anthropic API: https://api.anthropic.com/v1/messages  |  OpenRouter (free models): https://openrouter.ai/api/v1/chat/completions",
+      "default": ""
+    },
+    "apiKey": {
+      "type": "string",
+      "description": "API key. Anthropic: console.anthropic.com  |  OpenRouter (free): openrouter.ai/keys",
+      "default": ""
+    }
+  },
+  "methods": {
+    "setTableData": {
+      "description": "Passes active canvas model string arrays to context memory. Enables the chat input once data is received.",
+      "parameters": [
+        {
+          "name": "jsonData",
+          "type": "string"
+        }
+      ]
+    },
+    "setHeaderLabel": {
+      "description": "Dynamically sets the header layout title",
+      "parameters": [{ "name": "value", "type": "string" }],
+      "body": "this.headerLabel = value;"
+    },
+    "getHeaderLabel": {
+      "returnType": "string",
+      "body": "return this.headerLabel;"
+    }
+  },
+  "events": {
+    "onStart": {
+      "description": "Triggers customized event structures during boot sequences."
+    }
+  }
+}
