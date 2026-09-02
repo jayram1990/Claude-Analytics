@@ -1,8 +1,8 @@
 {
   "id": "com.custom.sap.claude",
-  "version": "1.2.0",
+  "version": "1.1.0",
   "name": "Claude Enterprise Assistant",
-  "description": "Claude AI custom analytic widget with support for Hyperspace AI (SAP internal), Anthropic API, and OpenRouter free-tier models.",
+  "description": "Claude AI custom analytic widget with support for Anthropic API and OpenRouter free-tier models.",
   "newInstancePrefix": "ClaudeChat",
   "vendor": "Enterprise Analytics",
   "eula": "",
@@ -35,8 +35,8 @@
     },
     "model": {
       "type": "string",
-      "description": "AI model ID. Hyperspace AI: anthropic--claude-haiku-latest / anthropic--claude-sonnet-latest / anthropic--claude-opus-latest. Anthropic direct: claude-haiku-4-5-20251001. OpenRouter: anthropic/claude-3-haiku.",
-      "default": "anthropic--claude-haiku-latest"
+      "description": "AI model ID. Use Anthropic IDs for Anthropic API, or OpenRouter IDs (e.g. anthropic/claude-3-haiku:free) for OpenRouter.",
+      "default": "claude-haiku-4-5-20251001"
     },
     "temperature": {
       "type": "number",
@@ -60,12 +60,12 @@
     },
     "apiUrl": {
       "type": "string",
-      "description": "Hyperspace AI (SAP internal): http://localhost:6655/anthropic/v1/messages  |  Anthropic API: https://api.anthropic.com/v1/messages  |  OpenRouter (free models): https://openrouter.ai/api/v1/chat/completions",
+      "description": "Anthropic API: https://api.anthropic.com/v1/messages  |  OpenRouter (free models): https://openrouter.ai/api/v1/chat/completions",
       "default": ""
     },
     "apiKey": {
       "type": "string",
-      "description": "API key. Hyperspace AI: use your Hyperspace proxy API key  |  Anthropic: console.anthropic.com  |  OpenRouter (free): openrouter.ai/keys",
+      "description": "API key. Anthropic: console.anthropic.com  |  OpenRouter (free): openrouter.ai/keys",
       "default": ""
     }
   },
