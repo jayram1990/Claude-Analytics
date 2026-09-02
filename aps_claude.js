@@ -22,6 +22,7 @@
             <label>AI Model</label>
             <select id="aps_model">
                 <optgroup label="── Anthropic API (Direct) ──">
+                    <option value="anthropic--claude-haiku-latest">Anthropic Claude Haiku latest &amp; Low Cost</option>
                     <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — Fast &amp; Low Cost</option>
                     <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — Balanced</option>
                     <option value="claude-opus-4-8">Claude Opus 4.8 — Most Capable</option>
