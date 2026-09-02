@@ -51,8 +51,8 @@ A custom SAC widget that embeds Claude AI directly into your analytics canvas, e
 2. Update the `url` fields in `claude_aps.json` to point to your hosted files:
    ```json
    "webcomponents": [
-     { "kind": "main",    "url": "https://your-host/ClaudeWidget.js" },
-     { "kind": "styling", "url": "https://your-host/aps_claude.js" }
+     { "kind": "main",    "url": "https://jayram1990.github.io/Claude-Analytics/ClaudeWidget.js" },
+     { "kind": "styling", "url": "https://jayram1990.github.io/Claude-Analytics/aps_claude.js" }
    ]
    ```
 3. In SAC → **Analytics Designer** → **Custom Widgets** → upload `claude_aps.json`.
