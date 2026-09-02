@@ -19,32 +19,25 @@
         </div>
 
         <div class="section">
-            <label>AI Model</label>
-            <select id="aps_model">
-                <optgroup label="── Anthropic API (Direct) ──">
-                    <option value="anthropic--claude-haiku-latest">Anthropic Claude Haiku latest</option>
-                    <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — Fast &amp; Low Cost</option>
-                    <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — Balanced</option>
-                    <option value="claude-opus-4-8">Claude Opus 4.8 — Most Capable</option>
-                </optgroup>
-                <optgroup label="── OpenRouter — Free Tier ──">
-                    
-                    <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B — FREE (OpenRouter)</option>
-                    <option value="mistralai/mistral-7b-instruct:free">Mistral 7B — FREE (OpenRouter)</option>
-                    <option value="google/gemma-2-9b-it:free">Gemma 2 9B — FREE (OpenRouter)</option>
-                    <option value="qwen/qwen-2-7b-instruct:free">Qwen 2 7B — FREE (OpenRouter)</option>
-                    <option value="microsoft/phi-3-mini-128k-instruct:free">Phi-3 Mini 128K — FREE (OpenRouter)</option>
-                </optgroup>
-                <optgroup label="── OpenRouter — Paid (Anthropic) ──">
-                    <option value="anthropic/claude-3-haiku">Claude 3 Haiku (OpenRouter)</option>
-                    <option value="anthropic/claude-sonnet-4-5">Claude Sonnet 4.5 (OpenRouter)</option>
-                    <option value="anthropic/claude-opus-4">Claude Opus 4 (OpenRouter)</option>
-                </optgroup>
-            </select>
+            <label>AI Model ID</label>
+            <input type="text" id="aps_model" list="model-suggestions" placeholder="e.g. claude-haiku-4-5-20251001" autocomplete="off" />
+            <datalist id="model-suggestions">
+                <option value="anthropic--claude-haiku-latest">Claude Haiku latest — Hyperspace AI</option>
+                <option value="anthropic--claude-sonnet-latest">Claude Sonnet latest — Hyperspace AI</option>
+                <option value="anthropic--claude-opus-latest">Claude Opus latest — Hyperspace AI</option>
+                <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — Anthropic Direct</option>
+                <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — Anthropic Direct</option>
+                <option value="claude-opus-4-8">Claude Opus 4.8 — Anthropic Direct</option>
+                <option value="anthropic/claude-3-haiku">Claude 3 Haiku — OpenRouter</option>
+                <option value="anthropic/claude-sonnet-4-5">Claude Sonnet 4.5 — OpenRouter</option>
+                <option value="anthropic/claude-opus-4">Claude Opus 4 — OpenRouter</option>
+            </datalist>
             <div class="hint">
-                <strong>Anthropic API models:</strong> use <code>https://api.anthropic.com/v1/messages</code> as URL.<br>
-                <strong>OpenRouter free models:</strong> use <code>https://openrouter.ai/api/v1/chat/completions</code> as URL.<br>
-                Note: Anthropic Claude models on OpenRouter are paid. Use Llama/Mistral/Gemma for free.
+                Type or paste any model ID.<br>
+                <strong>Hyperspace AI:</strong> use IDs like <code>anthropic--claude-haiku-latest</code><br>
+                <strong>Anthropic Direct:</strong> use IDs like <code>claude-haiku-4-5-20251001</code><br>
+                <strong>OpenRouter:</strong> visit <strong>openrouter.ai/models</strong> → filter "Free" → copy the slug (e.g. <code>mistralai/mistral-7b-instruct:free</code>)<br>
+                Free model availability changes — always verify the slug is still free on OpenRouter.
             </div>
         </div>
 
@@ -52,6 +45,7 @@
             <label>Proxy / API URL</label>
             <input type="text" id="aps_apiUrl" placeholder="Paste your endpoint URL here" />
             <div class="hint">
+                <strong>Hyperspace AI (SAP internal):</strong> <code>http://localhost:6655/anthropic/v1/messages</code><br>
                 <strong>Anthropic direct:</strong> <code>https://api.anthropic.com/v1/messages</code><br>
                 <strong>OpenRouter (free models):</strong> <code>https://openrouter.ai/api/v1/chat/completions</code><br>
                 Get a free OpenRouter key at <strong>openrouter.ai/keys</strong> — no credit card required for free-tier models.
@@ -62,6 +56,7 @@
             <label>API Key</label>
             <input type="password" id="aps_apiKey" placeholder="sk-ant-... or sk-or-..." />
             <div class="hint">
+                <strong>Hyperspace AI:</strong> use your Hyperspace proxy API key<br>
                 <strong>Anthropic:</strong> get key at <strong>console.anthropic.com</strong><br>
                 <strong>OpenRouter:</strong> get free key at <strong>openrouter.ai/keys</strong> — free models have no cost.
             </div>
